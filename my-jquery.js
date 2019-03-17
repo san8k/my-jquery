@@ -43,4 +43,7 @@ class MyJQuery {
     }
 }
 
-const $ = (selector) => new MyJQuery(document.querySelectorAll(selector));
+const $ = (selector) => {
+    let elements = (selector instanceof HTMLElement) ? [selector] : document.querySelectorAll(selector);
+    return new MyJQuery(elements);
+};
